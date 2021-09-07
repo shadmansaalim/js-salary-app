@@ -1,0 +1,155 @@
+<html>
+
+<head>
+  <title>JS Salary App</title>
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <!-- Adding Fontawesome Icons -->
+  <script src="https://kit.fontawesome.com/3f16fb12e4.js"></script>
+  <script src="scripts/d3.js"></script>
+  <script src="scripts/nv.d3.js"></script>
+  <link rel="stylesheet" href="styles/bootstrap.css">
+  <link rel="stylesheet" href="styles/nv.d3.css">
+  <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.min.css">
+
+  <style>
+    #chart {
+      height: 400px;
+    }
+
+    .dialog p {
+      font-size: 1.2em;
+    }
+
+    #dialog-last-item span {
+      font-size: 2em;
+    }
+
+    #dialog-error span {
+      font-size: 1.3em;
+    }
+
+    #dialog-record-count span {
+      font-size: 2.5em;
+    }
+  </style>
+
+  <script src="scripts/jquery-2.1.4.min.js"></script>
+  <script src="scripts/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+  <script defer src="./salaryData.js"></script>
+  <script defer src="salaryApp.js"></script>
+  <script src="scripts/findEventHandlers.js"></script>
+</head>
+
+<body>
+  <div class="text-center" style="margin-bottom: 25px;">
+    <h1 class="text-primary"><strong>JS Salary App</strong></h1>
+    <small>Developer Saalim Shadman</small>
+  </div>
+  <div class="form-inline text-center" style="margin-bottom: 60px;">
+    <div class="form-group">
+      <input class="form-control" type='text' id='name' placeholder='Name'>
+      <input class="form-control" type='text' id='salary' placeholder='Salary'>
+      <button class="btn btn-success form-control" id="AddRecord">Add Record</button>
+      <button class="btn btn-info" id="showLast" data-toggle="modal" data-target="#showLastModal">Show Last</button>
+      <button class="btn btn-info" id="recordCount" data-toggle="modal" data-target="#recordCountModal">Record
+        Count</button>
+    </div>
+  </div>
+
+  <div id="chart">
+    <svg></svg>
+  </div>
+
+
+
+  <!-- <div id="dialog-error" class="hide dialog" title="Be careful Dude !">
+    <p id="newNameLine">Name: <span id="newName" class="text-warning"></span></p>
+    <p id="newSalaryLine">Salary: <span id="newSalary" class="text-warning"></span></p>
+    <h2 class="text-danger">Your Boss is watching!</h2>
+  </div> -->
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="showLastModal" tabindex="-1" role="dialog" aria-labelledby="showLastModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="showLastModalLabel">Last Person</h4>
+        </div>
+        <div class="modal-body">
+          <p>Name: <span id="showName" class="text-success"></span></p>
+          <p>Salary: <span id="showSalary" class="text-success"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="recordCountModal" tabindex="-1" role="dialog" aria-labelledby="recordCountModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="recordCountModalLabel">Records</h4>
+        </div>
+        <div class="modal-body">
+          <p>Record count: <span id="numberOfRecords" class="text-success"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="invalidRecord" tabindex="-1" role="dialog" aria-labelledby="invalidRecordLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="invalidRecordLabel">
+            <p><i class="fas fa-exclamation-triangle"></i> Invalid Credentials</p>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <p>Please check your <b>Name & Salary</b> and try again later. Please note name should be only of letters and
+            number should be only of digits.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
+</html>
